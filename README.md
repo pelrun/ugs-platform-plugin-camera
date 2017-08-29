@@ -1,6 +1,8 @@
 # ugs-platform-plugin-camera
 
-A simple webcam plugin for the UGS Platform.
+A simple webcam plugin for the UGS Platform from https://winder.github.io/ugs_website/
+
+(Classic GUI is not supported, sorry.)
 
 ## Installation
 
@@ -13,12 +15,15 @@ A simple webcam plugin for the UGS Platform.
 
 ## Usage
 
-Open the webcam pane from Window->Plugins->Camera
-Choose desired webcam from the dropdown menu (if multiple present)
-Choose crosshair style and colour beneath the webcam image.
+1. Open the webcam pane from Window->Plugins->Camera
+2. Choose desired webcam from the dropdown menu (if multiple present)
+3. Choose crosshair style and colour beneath the webcam image.
 
 ## Registration
 
-Can be done using a macro. "G10 L20 P0 X<offset_x> Y<offset_y> Z<offset_Z>" will set the current work offset zero to the tool
-position. Replace offset_x/offset_y/offset_z with the fixed offset of the crosshair centre from the tool position.
+Can be done using UGS Platform's macro feature. For instance:
+
+    G10 L20 P0 X<offset_x> Y<offset_y> Z<offset_Z>
+
+This will set the current work offset zero to the tool position. Replace offset_x/offset_y/offset_z with the fixed offset of the crosshair centre from the tool position.
 

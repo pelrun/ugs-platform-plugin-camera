@@ -16,10 +16,6 @@ import com.github.sarxos.webcam.WebcamDiscoveryListener;
 import com.github.sarxos.webcam.WebcamImageTransformer;
 import com.github.sarxos.webcam.WebcamPanel;
 import com.github.sarxos.webcam.WebcamResolution;
-import com.willwinder.ugs.nbp.lib.lookup.CentralLookup;
-import com.willwinder.universalgcodesender.listeners.UGSEventListener;
-import com.willwinder.universalgcodesender.model.BackendAPI;
-import com.willwinder.universalgcodesender.utils.Settings;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -54,11 +50,7 @@ import javax.swing.JColorChooser;
     "HINT_cameraTopComponent=This is a camera window"
 })
 
-public final class cameraTopComponent extends TopComponent implements UGSEventListener, WebcamDiscoveryListener, ItemListener, WebcamImageTransformer {
-
-    // These are the UGS backend objects for interacting with the backend.
-    private final Settings settings;
-    private final BackendAPI backend;
+public final class cameraTopComponent extends TopComponent implements WebcamDiscoveryListener, ItemListener, WebcamImageTransformer {
 
     private Color crosshairColour = Color.GREEN;
 
@@ -66,13 +58,6 @@ public final class cameraTopComponent extends TopComponent implements UGSEventLi
         initComponents();
         setName(Bundle.CTL_cameraTopComponent());
         //setToolTipText(Bundle.HINT_cameraTopComponent());
-
-        // This is how to access the UGS backend and register the listener.
-        // CentralLookup is used to get singleton instances of the UGS Settings
-        // and BackendAPI objects.
-        settings = CentralLookup.getDefault().lookup(Settings.class);
-        backend = CentralLookup.getDefault().lookup(BackendAPI.class);
-        backend.addUGSEventListener(this);
 
         initCamera(webcamPicker1.getSelectedWebcam());
     }
@@ -289,7 +274,4 @@ public final class cameraTopComponent extends TopComponent implements UGSEventLi
         return bi;
     }
 
-    @Override
-    public void UGSEvent(com.willwinder.universalgcodesender.model.UGSEvent evt) {
-    }
 }

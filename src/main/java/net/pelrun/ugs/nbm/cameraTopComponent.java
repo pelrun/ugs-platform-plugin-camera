@@ -84,7 +84,7 @@ public final class cameraTopComponent extends TopComponent implements WebcamDisc
 
         jPanel1.setLayout(new java.awt.BorderLayout());
 
-        crosshairComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No Crosshair", "90 degree", "45 degree" }));
+        crosshairComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No Crosshair", "90 degree", "45 degree" , "90 degree with circles", "45 degree with circles" }));
 
         org.openide.awt.Mnemonics.setLocalizedText(crosshairColourButton, org.openide.util.NbBundle.getMessage(cameraTopComponent.class, "cameraTopComponent.crosshairColourButton.text")); // NOI18N
         crosshairColourButton.addActionListener(new java.awt.event.ActionListener() {
@@ -251,6 +251,7 @@ public final class cameraTopComponent extends TopComponent implements WebcamDisc
     public BufferedImage transform(BufferedImage bi) {
         int w = bi.getWidth();
         int h = bi.getHeight();
+        int r = 10;
 
         Graphics2D g2 = bi.createGraphics();
         g2.setPaint(crosshairColour);
@@ -263,6 +264,22 @@ public final class cameraTopComponent extends TopComponent implements WebcamDisc
             case 2:
                 g2.drawLine(0,0,w,h);
                 g2.drawLine(0,h,w,0);
+                break;
+            case 3:
+                g2.drawLine(0,h/2,w,h/2);
+                g2.drawLine(w/2,0,w/2,h);
+                g2.drawOval(w/2-2*r/2,h/2-2*r/2,2*r,2*r);
+                g2.drawOval(w/2-8*r/2,h/2-8*r/2,8*r,8*r);
+                g2.drawOval(w/2-16*r/2,h/2-16*r/2,16*r,16*r);
+                g2.drawOval(w/2-24*r/2,h/2-24*r/2,24*r,24*r);
+                break;
+            case 4:
+                g2.drawLine(0,0,w,h);
+                g2.drawLine(0,h,w,0);
+                g2.drawOval(w/2-2*r/2,h/2-2*r/2,2*r,2*r);
+                g2.drawOval(w/2-8*r/2,h/2-8*r/2,8*r,8*r);
+                g2.drawOval(w/2-16*r/2,h/2-16*r/2,16*r,16*r);
+                g2.drawOval(w/2-24*r/2,h/2-24*r/2,24*r,24*r);
                 break;
             default:
                 break;

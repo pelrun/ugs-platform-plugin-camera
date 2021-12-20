@@ -16,7 +16,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <netbeans.version>RELEASE82</netbeans.version>
+        <netbeans.version>RELEASE90</netbeans.version>
     </properties>
 
     <repositories>
@@ -28,7 +28,7 @@
         <repository>
             <id>netbeans</id>
             <name>NetBeans</name>
-	    <url>http://netbeans.apidesign.org/maven2/</url>
+	    <url>https://repo.maven.apache.org/maven2/</url>
         </repository>
         <repository>
             <id>Sonatype OSS Snapshot Repository</id>

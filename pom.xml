@@ -32,7 +32,7 @@
         </repository>
         <repository>
             <id>Sonatype OSS Snapshot Repository</id>
-            <url>http://oss.sonatype.org/content/repositories/snapshots</url>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </repository>
     </repositories>
 
